@@ -25,12 +25,29 @@
 # Skypro
 #
 # Число итераций: 1000
+import base64
+import hashlib
+import hmac
+
 
 def easy(pwd_hash, other_password):
     # TODO Напишите Ваш код здесь
-    pass
+    new_password_hash = hashlib.md5(pwd_hash.encode('utf-8')).hexdigest()
+    return new_password_hash == other_password
+
 
 PWD_HASH_ITERATIONS = 1000
+
+
 def hard(password_hash, other_password, salt, algo):
     # TODO Напишите Ваш код здесь
-    pass
+    return hmac.compare_digest(
+        password_hash,
+        hashlib.pbkdf2_hmac(algo, other_password.encode(), salt, PWD_HASH_ITERATIONS)
+    )
+
+
+# print(easy('H4RDP4S$w0rd', '80309097b712c6828d0f3f6dfd713e80'))
+# print(hard(b'\xb6`^\x81q\xd8e\x0b\x1f\x93YR\x8dE\x0c\x0f\xc2\xe4\xbc\x14\xf5\xdf\xdc\xec\xad\xcf\xf3\xca\xd2C\x17\xbb',
+#            'H4RDP4S$w0rd',
+#            'Skypro', 'sha256'))

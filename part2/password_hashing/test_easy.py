@@ -12,7 +12,7 @@ parts = cwd.parts
 basefolder_index = parts.index(project_name)
 basepath = Path(*parts[:basefolder_index + 1])
 sys.path.append(str(basepath))
-from ttools.skyprotests.tests import SkyproTestCase             # noqa: E402
+from ttools.skyprotests.tests import SkyproTestCase  # noqa: E402
 
 
 class PasswordTestCase(SkyproTestCase):
@@ -28,7 +28,7 @@ class PasswordTestCase(SkyproTestCase):
         self.assertTrue(
             inspect.isfunction(getattr(main, self.func_name)),
             f"%@Проверьте что объект {self.func_name} является функцией")
-    
+
     def test_easy_returns_not_none(self):
         func = getattr(main, self.func_name)
         author_func = getattr(solution, self.func_name)
@@ -38,8 +38,9 @@ class PasswordTestCase(SkyproTestCase):
         )
 
         self.assertTrue(
-            func('HardPassword')==author_func('HardPassword'),
-           "%@Проверьте что в функции используется алгоритм md5")
+            func('HardPassword') == author_func('HardPassword'),
+            "%@Проверьте что в функции используется алгоритм md5")
+
 
 if __name__ == "__main__":
     unittest.main()
