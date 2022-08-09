@@ -51,3 +51,4 @@ def hard(password_hash, other_password, salt, algo):
 # print(hard(b'\xb6`^\x81q\xd8e\x0b\x1f\x93YR\x8dE\x0c\x0f\xc2\xe4\xbc\x14\xf5\xdf\xdc\xec\xad\xcf\xf3\xca\xd2C\x17\xbb',
 #            'H4RDP4S$w0rd',
 #            'Skypro', 'sha256'))
+#
